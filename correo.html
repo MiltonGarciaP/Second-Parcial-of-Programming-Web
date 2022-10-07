@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Correo</title>
+    <link rel="stylesheet"href="css/bootstrap.min.css">
+</head>
+
+<style>
+  
+  * {
+    margin:0;
+    }
+    body {
+    background: -moz-linear-gradient(left bottom, rgb(202, 255, 9) 40%, 
+    rgb(44, 199, 23) 70%, rgb(22, 207, 50) 95%);
+    background: -ms-linear-gradient(left bottom, rgb(210, 210, 18) 40%,
+rgb(138, 199, 16) 70%, rgb(165, 179, 16) 95%);
+background: -o-linear-gradient(left bottom, rgb(27, 192, 27) 40%,
+rgb(27, 184, 19) 70%, rgb(172, 195, 22) 95%);
+background: -webkit-linear-gradient(left bottom, rgb(62, 182, 34) 40%,
+rgb(193, 187, 22) 70%, rgb(25, 186, 16) 95%);
+background: linear-gradient(left bottom, rgb(180, 194, 27) 40%,
+rgb(39, 192, 15) 70%, rgb(163, 165, 23) 95%);
+color:white;
+font-family:Arial;
+font-size:16px;
+margin:0;
+text-shadow:1px 1px 0 rgba(0,0,0,.3);
+}
+  
+   
+
+</style>
+
+
+<body>
+    <p class="h1">Enviar un correo al cliente </p>
+    <p class="h5">Usted tiene problema con el formulario del guardado de nuestro sistema o tiene un problema en general escriba por aquí</p>
+    <p class="h6">A continuacion ingrese su nombre , correo y el comentario o problema que quiera comunicar </p>
+    <form action="https://formsubmit.co/miltongp26@gmail.com" method="POST">
+        <div>
+            <h3> Su nombre : <input class="form-control" type="text" name="nombre" required></h3>
+        </div>
+    
+        <div>
+            <h3 >Su correo : <input class="form-control" type="email" name="email" id="email" required></h3>
+        </div>
+    
+        <div>
+
+          <h3> Comentario o problema en general <input  class="form-control" id="queja" rows="3"></input></h3>  
+  
+        
+
+
+    <input class="btn btn-success" type="submit" value="Enviar">
+    <input class="btn btn-info" type="reset" value="Resetear">
+    <a href="index.html" class="btn btn-dark btn-sm">Volver a la Seccion de Iniciar Seccion</a>
+    <a href="crud.html" class="btn btn-dark btn-sm">Volver a la Seccion del CRUD</a>
+</form>
+</body>
+</html>

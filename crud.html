@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda de Clientes</title>
+    <link rel="stylesheet"href="css/bootstrap.min.css">
+</head>
+
+<style>
+     * {
+    margin:0;
+    }
+    body {
+    background: -moz-linear-gradient(left bottom, rgb(202, 255, 9) 40%, 
+    rgb(44, 199, 23) 70%, rgb(22, 207, 50) 95%);
+    background: -ms-linear-gradient(left bottom, rgb(210, 210, 18) 40%,
+rgb(138, 199, 16) 70%, rgb(165, 179, 16) 95%);
+background: -o-linear-gradient(left bottom, rgb(27, 192, 27) 40%,
+rgb(27, 184, 19) 70%, rgb(172, 195, 22) 95%);
+background: -webkit-linear-gradient(left bottom, rgb(62, 182, 34) 40%,
+rgb(193, 187, 22) 70%, rgb(25, 186, 16) 95%);
+background: linear-gradient(left bottom, rgb(180, 194, 27) 40%,
+rgb(39, 192, 15) 70%, rgb(163, 165, 23) 95%);
+color:white;
+font-family:Arial;
+font-size:16px;
+margin:0;
+text-shadow:1px 1px 0 rgba(0,0,0,.3);
+}
+
+    .beestadistica{
+        color: rgb(21, 0, 255);
+        background-color: blue;
+    }
+
+     #listanotas{
+         border: solid 1px silver;
+         width: 100%;
+     }
+
+     #listanotas thead{
+      background: rgb(0, 0, 0);
+      color: rgb(8, 0, 255);
+
+     }
+    
+    .Tema{
+
+        text-align: center;
+    }
+
+    .TablaP{
+        color: rgb(255, 255, 255);
+        background-color: black;
+    }
+
+   
+    
+
+    
+
+
+
+    
+</style>
+<body>
+    <h3 class="Tema"></h3>
+    <table class="TablaP" border="4">
+        
+        <p class="h1">Guardar datos del cliente</p>
+        <tr>
+            <th>Nombre</th>
+            <td>
+                <input type="text" id="Nombre" required class="form-control" >
+            </td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>
+                <input type="text" id="Apellido" class="form-control" required>
+            </td>
+        </tr>
+        <tr>
+            <th>Edad</th>
+            <td>
+                <input type="number" id="Edad" class="form-control" required>
+            </td>
+        </tr>
+        <tr>
+            <th>Correo</th>
+            <td>
+                <input type="text" id="Correo" class="form-control" required>
+            </td>
+        </tr>
+       
+
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="agregarestu();" class="btn btn-success" type="submit">Agregar</button>
+                <button class="btn btn-warning" type="submit">Editar</button>
+                <button onclick="borrardatos()"; class="btn btn-danger" type="submit">Eliminar</button>
+                <a href="index.html" class="btn btn-outline-primary btn-sm">Volver a la Seccion de Iniciar Seccion</a>
+                <a href="correo.html" class="btn btn-outline-primary btn-sm">Enviar un correo al cliente</a>
+
+            </td>
+          
+            
+        </tr>
+
+
+    </table>
+
+    <hr/>
+
+    <table id="listanotas">
+        <thead>
+            <tr>
+                
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Correo</th>
+                
+                
+
+            </tr>
+
+        </thead>
+        <tbody id="tbDatos">
+
+        </tbody>
+    </table>
+    
+    <script>
+
+
+function limpiarformulario(){
+ campos = document.getElementsByTagName('Input');
+ for (x = 0 ; x < campos.length; x++){
+     campos[x].value = "";
+ }
+
+
+}
+
+
+
+     
+
+
+     var Estudiantes = [];
+
+     function agregarestu(){
+         Estudiante = [];
+
+         
+         Estudiante.push(document.getElementById('Nombre').value);
+         Estudiante.push(document.getElementById('Apellido').value);
+         Estudiante.push(document.getElementById('Edad').value);
+         Estudiante.push(document.getElementById('Correo').value);
+         
+         
+         
+
+         Estudiantes.push(Estudiante);
+
+         datos = JSON.stringify(Estudiantes);
+         localStorage.setItem('Registro',datos);
+         limpiarformulario();
+         mostrardatos();
+
+
+     }
+        
+        
+
+
+     function mostrardatos (){
+
+         destino = document.getElementById('tbDatos');
+         destino.innerHTML = "";
+
+         for(x = 0; x < Estudiantes.length ; x++){
+             
+             tr = document.createElement('tr');
+             Estudiante = Estudiantes[x];
+             
+             for(y=0;  y< Estudiante.length; y++){
+                 dato = Estudiante[y];
+                 td = document.createElement('td');
+                 td.innerHTML = dato;
+                 tr.appendChild(td);
+             }
+
+             destino.appendChild(tr);
+         }
+         
+
+         
+
+
+     }
+
+     function borrardatos()
+     {
+       localStorage.clear();
+       location.reload();
+       mostrardatos();
+
+     }
+
+     datos = localStorage.getItem('Registro');
+     if(datos != null){
+         Estudiantes = JSON.parse(datos)
+         mostrardatos();
+     }
+
+     
+    </script>
+    
+</body>
+</html>

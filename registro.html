@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet"href="css/bootstrap.min.css">
+</head>
+
+
+<style>
+
+body{
+                background:url("OIP.jpg");
+                
+            }
+
+</style>
+
+<body>
+    <div class ="modal-dialog text-center">
+        <div class ="col-se-8">
+            <div class="modal-content">
+                <div class="col-12 ">
+                    <p class="h1">Registro de Usuario</p>
+  <form id="signup-form">
+    <div>
+        <p class="h6">Ingrese un Nombre de Usuario </p>
+        <input id="name1" type="text" placeholder="NombreUsuario" value="" required class="form-control">
+    </div>
+    
+    <div>
+        <p class="h6">Ingrese una contraseña</p>
+        <input id="pass1" type="password" placeholder="contraseña" value="" required class="form-control">
+    </div>
+    <div>
+        
+        <input id="signup_btn" type="submit" value="Registrarse" class="btn btn-success">
+      
+    </div>
+    <div>
+        <p class="h6">Usted ya esta registrado puede iniciar seccion</p>
+        <a href="index.html" class="btn btn-outline-primary btn-sm">Volver a la Seccion de Iniciar Seccion</a>
+    </div>
+
+    </div>
+</div>
+</div>
+</div>
+    
+  </form>
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      $("#signup-form").submit(function () {
+        var nm1 = $("#name1").val();
+        var ps1 = $("#pass1").val();
+        localStorage.setItem("n1", nm1);
+        localStorage.setItem("p1", ps1);
+        
+        alert ("Se ha registrado correctamente " + nm1)
+         window.location.href = 'crud.html';
+        
+
+      });
+
+    });
+
+    
+  </script>
+</body>
+
+</html>

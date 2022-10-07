@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sección</title>
+  <link rel="stylesheet"href="css/bootstrap.min.css">
+</head>
+
+<style>
+body{
+                background:url("OIP.jpg");
+                
+            }
+
+</style>
+
+<body>
+  <div class ="modal-dialog text-center">
+    <div class ="col-se-8">
+        <div class="modal-content">
+            <div class="col-12 ">
+
+  <form id="login-form">
+
+    <p class="h1">Inicio de Sección</p>
+    <div>
+      <p class="h6">Ingrese su nombre de Usuario</p>
+      <input id="name2" type="text" placeholder="NombreUsuario" value="" class="form-control" required>
+    </div>
+    <div>
+      <p class="h6">Ingrese su contraseña</p>
+      <input id="pass2" type="password" placeholder="Contrasena" value="" class="form-control" required>
+    </div>
+    <div>
+      <input id="login_btn" type="submit" value="Iniciar Sección" class="btn btn-outline-primary btn-sm">
+      <div>
+        <p class="h6">Aun no tiene una cuenta registrese aquí</p>
+        <a href="registro.html" class="btn btn-success">Registarse</a>
+
+      </div>
+
+      <div>
+        <p class="h6">Ir al Crud principal</p>
+        <a href="crud.html" class="btn btn-success">CRUD</a>
+      </div>
+      
+    </div>
+
+    </div>
+  </div>
+</div>
+   
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+   
+
+      $("#login-form").submit(function () {
+        var enteredName = $("#name2").val();
+        var enteredPass = $("#pass2").val();
+
+        var storedName = localStorage.getItem("n1");
+        var storedPass = localStorage.getItem("p1");
+
+        if (enteredName == storedName && enteredPass == storedPass) {
+          alert("Usted a iniciado Sección " + storedName);
+          location.href = "crud.html" 
+        }
+        else {
+          alert("Su contraseña o Nombre de Usuario es incorrecto vuelva intentarlo");
+        }
+
+      });
+
+    
+  </script>
+</body>
+
+</html>
